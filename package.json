@@ -1,0 +1,9 @@
+{
+  "name": "movue",
+  "version": "1.0.0",
+  "description": "Vue learning project.",
+  "main": "index.js",
+  "repository": "git@github.com:vebrovski/movue.git",
+  "author": "Matija Veber, vebrovski <6883519+vebrovski@users.noreply.github.com>",
+  "license": "MIT"
+}
