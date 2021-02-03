@@ -11,6 +11,11 @@ const routes = [
     name: PageHome,
     component: PageHome
   },
+
+  {
+    path: '*',
+    component: NotFound,
+  },
 ]
 
 mainMenuRoutes.forEach( route => {
