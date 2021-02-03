@@ -1,5 +1,6 @@
 <template>
   <div class="page">
+    <app-header></app-header>
     <div id="main">
       <slot></slot>
     </div>
@@ -7,9 +8,12 @@
 </template>
 
 <script>
-  export default {
-    name: "Page",
-  }
+import AppHeader from "@components/organisms/Header.vue";
+
+export default {
+  name: "Page",
+  components: { AppHeader }
+};
 </script>
 
 <style scoped>
