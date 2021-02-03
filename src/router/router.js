@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import mainMenuRoutes from '@routes/mainMenuRoutes'
+import mainMenuRoutes from '@router/mainMenuRoutes'
 import PageHome from '@components/pages/PageHome.vue'
 
 Vue.use(VueRouter)
