@@ -7,7 +7,6 @@
     <!-- We are relying here on path, which is not ok. for now it works because child paths in routing are hardcoded like '/movies/top-rated'. First level path should be added dynamically. -->
     <router-link
       :to="{ path: route.path }"
-      tag="a"
       :class="[
         `menu__link menu__link--lvl${depth}`,
         depth > 1 ? 'menu__child-link' : '',
