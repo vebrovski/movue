@@ -1,23 +1,26 @@
 <template>
-  <menu-list class="main-menu flex flex-row" :routes="mainMenuRoutes"></menu-list>
+  <menu-list
+    class="flex flex-row"
+    menuClass="main-menu"
+    :routes="mainMenuRoutes"
+  ></menu-list>
 </template>
 
 <script>
-import mainMenuRoutes from "@router/mainMenuRoutes"
-import MenuList from "@components/molecules/MenuList.vue"
+import mainMenuRoutes from "@router/mainMenuRoutes";
+import MenuList from "@components/molecules/MenuList.vue";
 
 export default {
   name: "MainMenu",
   components: { MenuList },
 
-  data () {
+  data() {
     return {
-      mainMenuRoutes
-    }
-  }
-}
+      mainMenuRoutes,
+    };
+  },
+};
 </script>
 
 <style scoped>
-
 </style>

@@ -7,7 +7,7 @@ import MenuList from "@components/molecules/MenuList.vue"
 
 Vue.config.productionTip = false
 
-Vue.component('MenuList', { MenuList })
+Vue.component('MenuList', MenuList)
 
 new Vue({
   router,

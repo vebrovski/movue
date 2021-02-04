@@ -1,12 +1,22 @@
 <template>
-  <ul :class="`menu menu--lvl${depth}`">
-    <menu-item
-      v-for="(route, index) in routes"
-      :key="index"
-      :route="route"
-      :depth="depth"
-    >
-    </menu-item>
+  <ul :class="[
+      'menu',
+      `menu--lvl${depth}`,
+      menuClass && depth === 1 ? `${menuClass}` : '',
+      menuClass ? `${menuClass}--lvl${depth}` : ''
+    ]">
+    <slot>
+      <menu-item
+        v-for="(route, index) in routes"
+        :key="index"
+        :menuClass="`${menuClass}`"
+        :menuItemClass="`${menuClass}__item`"
+        :route="route"
+        :depth="depth"
+        :showChildren="true"
+      >
+      </menu-item>
+    </slot>
   </ul>
 </template>
 
@@ -22,18 +32,17 @@ export default {
 
   props: {
     routes: {
-      type: Array
+      type: Array,
     },
     depth: {
       type: Number,
-      default: 1
+      default: 1,
     },
-    depthLimit: {
-      type: Number,
-      default: 5
-    }
-  }
-}
+    menuClass: {
+      type: String,
+    },
+  },
+};
 </script>
 
 <style scoped lang="scss">

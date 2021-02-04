@@ -1,6 +1,10 @@
 <template>
   <li
-    :class="`menu__item menu__item--lvl${depth}`"
+    :class="[
+      `menu__item menu__item--lvl${depth}`,
+      menuItemClass ? `${menuItemClass}` : '',
+      menuItemClass ? `${menuItemClass}--lvl${depth}` : ''
+    ]"
     @mouseover="active = true"
     @mouseleave="active = false"
   >
@@ -9,32 +13,49 @@
       :to="{ path: route.path }"
       :class="[
         `menu__link menu__link--lvl${depth}`,
-        depth > 1 ? 'menu__child-link' : '',
+        menuItemClass ? `${menuItemClass}__link` : '',
+        menuItemClass ? `${menuItemClass}__link--lvl${depth}` : ''
       ]"
     >
       {{ route.meta.label }}
     </router-link>
+    
     <!-- menu-list is registered globally -->
-    <menu-list :routes="route.children" :depth="depth - 1" v-if="route.children && showChildren" v-show="active" class="menu menu__children"></menu-list>
+    <menu-list
+      :class="[
+        'menu__children',
+        menuClass ? `${menuClass}__children` : '',
+      ]"
+      :menuClass="menuClass"
+      :routes="route.children"
+      :depth="depth + 1"
+      v-if="route.children && showChildren && depth > 0"
+      v-show="active"
+    ></menu-list>
   </li>
 </template>
 
 <script>
-
 export default {
   name: "MenuItem",
 
   props: {
     route: {
-      type: Object
+      type: Object,
     },
     depth: {
       type: Number,
-      default: 1
+      default: 1,
     },
     showChildren: {
       type: Boolean,
-      default: false
+      default: false,
+    },
+    menuClass: {
+      type: String,
+    },
+    menuItemClass: {
+      type: String,
     }
   },
 
@@ -43,7 +64,7 @@ export default {
       active: false,
     }
   }
-}
+};
 </script>
 
 <style scoped lang="scss">
