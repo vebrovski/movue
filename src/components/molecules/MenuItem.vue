@@ -9,13 +9,18 @@
     @mouseleave="active = false"
   >
     <!-- We are relying here on path, which is not ok. for now it works because child paths in routing are hardcoded like '/movies/top-rated'. First level path should be added dynamically. -->
-    <menu-link
+    <link-el
+      :class="[
+        `menu__link menu__link--lvl${depth}`,
+        menuItemClass ? `${menuItemClass}__link` : '',
+        menuItemClass ? `${menuItemClass}__link--lvl${depth}` : '',
+      ]"
       :label="route.meta.label"
       :url="route.path"
       :menuLinkClass="menuItemClass"
       :depth="depth"
     >
-    </menu-link>
+    </link-el>
 
     <!-- menu-list is registered globally -->
     <menu-list
@@ -30,10 +35,10 @@
 </template>
 
 <script>
-import MenuLink from "@components/atoms/MenuLink.vue";
+import LinkEl from "@components/atoms/LinkEl.vue";
 
 export default {
-  components: { MenuLink },
+  components: { LinkEl },
   name: "MenuItem",
 
   props: {
