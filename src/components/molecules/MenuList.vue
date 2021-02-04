@@ -13,7 +13,7 @@
         :menuItemClass="`${menuClass}__item`"
         :route="route"
         :depth="depth"
-        :showChildren="true"
+        :showChildren="showChildren"
       >
       </menu-item>
     </slot>
@@ -37,6 +37,10 @@ export default {
     depth: {
       type: Number,
       default: 1,
+    },
+    showChildren: {
+      type: Boolean,
+      default: false,
     },
     menuClass: {
       type: String,
