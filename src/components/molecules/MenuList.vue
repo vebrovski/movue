@@ -40,7 +40,7 @@ export default {
     },
     showChildren: {
       type: Boolean,
-      default: false,
+      default: true,
     },
     menuClass: {
       type: String,

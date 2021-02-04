@@ -3,29 +3,23 @@
     :class="[
       `menu__item menu__item--lvl${depth}`,
       menuItemClass ? `${menuItemClass}` : '',
-      menuItemClass ? `${menuItemClass}--lvl${depth}` : ''
+      menuItemClass ? `${menuItemClass}--lvl${depth}` : '',
     ]"
     @mouseover="active = true"
     @mouseleave="active = false"
   >
     <!-- We are relying here on path, which is not ok. for now it works because child paths in routing are hardcoded like '/movies/top-rated'. First level path should be added dynamically. -->
-    <router-link
-      :to="{ path: route.path }"
-      :class="[
-        `menu__link menu__link--lvl${depth}`,
-        menuItemClass ? `${menuItemClass}__link` : '',
-        menuItemClass ? `${menuItemClass}__link--lvl${depth}` : ''
-      ]"
+    <menu-link
+      :label="route.meta.label"
+      :url="route.path"
+      :menuLinkClass="menuItemClass"
+      :depth="depth"
     >
-      {{ route.meta.label }}
-    </router-link>
-    
+    </menu-link>
+
     <!-- menu-list is registered globally -->
     <menu-list
-      :class="[
-        'menu__children',
-        menuClass ? `${menuClass}__children` : '',
-      ]"
+      :class="['menu__children', menuClass ? `${menuClass}__children` : '']"
       :menuClass="menuClass"
       :routes="route.children"
       :depth="depth + 1"
@@ -36,7 +30,10 @@
 </template>
 
 <script>
+import MenuLink from "@components/atoms/MenuLink.vue";
+
 export default {
+  components: { MenuLink },
   name: "MenuItem",
 
   props: {
@@ -45,25 +42,23 @@ export default {
     },
     depth: {
       type: Number,
-      default: 1,
     },
     showChildren: {
       type: Boolean,
-      default: false,
     },
     menuClass: {
       type: String,
     },
     menuItemClass: {
       type: String,
-    }
+    },
   },
 
   data() {
     return {
       active: false,
-    }
-  }
+    };
+  },
 };
 </script>
 
