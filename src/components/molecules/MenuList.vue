@@ -1,16 +1,19 @@
 <template>
-  <ul :class="[
+  <ul
+    :class="[
       'menu',
       `menu--lvl${depth}`,
       menuClass && depth === 1 ? `${menuClass}` : '',
-      menuClass ? `${menuClass}--lvl${depth}` : ''
-    ]">
+      menuClass ? `${menuClass}--lvl${depth}` : '',
+    ]"
+  >
     <slot>
       <menu-item
         v-for="(route, index) in routes"
         :key="index"
         :menuClass="`${menuClass}`"
         :menuItemClass="`${menuClass}__item`"
+        :menuItemExtraClasses="menuItemExtraClasses"
         :route="route"
         :depth="depth"
         :showChildren="showChildren"
@@ -43,6 +46,9 @@ export default {
       default: true,
     },
     menuClass: {
+      type: String,
+    },
+    menuItemExtraClasses: {
       type: String,
     },
   },

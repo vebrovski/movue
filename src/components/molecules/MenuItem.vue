@@ -4,6 +4,7 @@
       `menu__item menu__item--lvl${depth}`,
       menuItemClass ? `${menuItemClass}` : '',
       menuItemClass ? `${menuItemClass}--lvl${depth}` : '',
+      menuItemExtraClasses ? `${menuItemExtraClasses}` : '',
     ]"
     @mouseover="active = true"
     @mouseleave="active = false"
@@ -26,6 +27,7 @@
     <menu-list
       :class="['menu__children', menuClass ? `${menuClass}__children` : '']"
       :menuClass="menuClass"
+      :menuItemExtraClasses="menuItemExtraClasses"
       :routes="route.children"
       :depth="depth + 1"
       v-if="route.children && showChildren && depth > 0"
@@ -55,6 +57,9 @@ export default {
       type: String,
     },
     menuItemClass: {
+      type: String,
+    },
+    menuItemExtraClasses: {
       type: String,
     },
   },

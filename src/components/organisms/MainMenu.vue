@@ -3,6 +3,7 @@
     class="flex flex-row"
     menuClass="main-menu"
     :routes="mainMenuRoutes"
+    menuItemExtraClasses="px-4"
   ></menu-list>
 </template>
 
