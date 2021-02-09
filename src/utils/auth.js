@@ -17,7 +17,6 @@ export default class MovueApi {
     }
 
     getApiKey() {
-        console.log(process.env.API_KEY);
         return this.apiKey;
     }
 }
