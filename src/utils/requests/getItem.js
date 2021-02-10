@@ -19,10 +19,8 @@ const getItem = (mediaType, id, listType = '') => {
 
   if (listType) {
     return request(`${api.baseUrl}/${api.version}/${mediaType}/${id}/${listType}?api_key=${api.getApiKey()}`)
-      .then(response => response)
   } else {
     return request(`${api.baseUrl}/${api.version}/${mediaType}/${id}?api_key=${api.getApiKey()}`)
-      .then(response => response)
   }
 };
 

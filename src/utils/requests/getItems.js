@@ -16,10 +16,8 @@ const api = new MovueApi();
 export const getItems = (mediaType, listType, query = '') => {
   if (query) {
     return request(`${api.baseUrl}/${api.version}/${mediaType}/${listType}?api_key=${api.getApiKey()}&${query}`)
-      .then(response => response)
   } else {
     return request(`${api.baseUrl}/${api.version}/${mediaType}/${listType}?api_key=${api.getApiKey()}`)
-      .then(response => response)
   }
 };
 
@@ -30,7 +28,6 @@ export const getItems = (mediaType, listType, query = '') => {
  */
 export const searchItems = (type, query) => {
   return request(`${api.baseUrl}/${api.version}/search/${type}?api_key=${api.getApiKey()}&query=${query}`)
-  .then(response => response)
 };
 
 /**
@@ -41,7 +38,6 @@ export const searchItems = (type, query) => {
  */
 export const getTrendingItems = (mediaType, timeWindow) => {
   return request(`${api.baseUrl}/${api.version}/trending/${mediaType}/${timeWindow}?api_key=${api.getApiKey()}`)
-  .then(response => response)
 };
 
 
@@ -53,11 +49,11 @@ export const getTrendingItems = (mediaType, timeWindow) => {
  */
 export const getItemsWithTrailers = (mediaType, listType) => {
   return request(`${api.baseUrl}/${api.version}/${mediaType}/${listType}?api_key=${api.getApiKey()}`)
-  .then(response => {
-    const results = response.data.results;
+    .then(response => {
+      const results = response.data.results;
 
-    results.forEach((result) => {
-      return getItem(mediaType, result.id, 'videos');
+      results.forEach((result) => {
+        return getItem(mediaType, result.id, 'videos');
+      });
     });
-  });
 };
