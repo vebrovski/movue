@@ -5,9 +5,9 @@ import axios from "axios";
  * @returns {Promise<AxiosResponse<T>>}
  */
 export default async function request(url) {
-    try {
-        return await axios.get(url);
-    } catch (error) {
-        console.log(error.message);
-    }
+  try {
+    return await axios.get(url);
+  } catch (error) {
+    console.log(error.message);
+  }
 }
