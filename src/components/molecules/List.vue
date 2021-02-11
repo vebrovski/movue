@@ -1,14 +1,22 @@
 <template>
   <ul class="list">
-    <slot></slot>
+    <slot>
+      <!-- Using index for key here because it is just a generic default content for slot. When using this component you handle item your own way. -->
+      <list-item
+        v-for="(item, index) in items"
+        :key="index"
+        :item="item"
+      ></list-item>
+    </slot>
   </ul>
 </template>
 
 <script>
-  export default {
-    name: "List",
-  }
-</script>
+import ListItem from "@components/molecules/ListItem.vue";
 
-<style scoped lang="scss">
-</style>
+export default {
+  name: "List",
+  components: { ListItem },
+  props: ['items']
+};
+</script>
