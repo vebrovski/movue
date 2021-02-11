@@ -1,12 +1,20 @@
 <template>
   <div class="card">
-    <Poster class="card__poster" v-if="image" :path="posterPath"></Poster>
+    <Poster 
+      v-if="image"
+      :path="posterPath"
+      class="card__poster"
+    ></Poster>
     <div class="card__content">
-      <Title class="card__title" v-if="title" :level="2">
+      <Title
+        v-if="title"
+        class="card__title" 
+        :level="3"
+      >
         {{ title }}
       </Title>
       <div class="card__details">
-        <VoteScore
+        <VoteScore 
           class="card__vote-score"
           :score="score"
         ></VoteScore>
@@ -41,38 +49,34 @@ export default {
      * getItem("movie", 464052).then((response) => {
      *   this.item = response.data;
      * });
-     * 
+     *
      * <div :title="item.title"></div> item.title is undefined here.
      */
-
-    item: {
-      type: Object,
-      required: true,
-    },
-    image: {
-      type: String,
-    },
-    score: {
-      type: Number,
-    },
     title: {
       type: String,
       required: true,
       default: "",
     },
+    image: {
+      type: String,
+      default: ""
+    },
     imageSize: {
       type: String,
       default: "w220_and_h330_face",
-    }
+    },
+    score: {
+      type: Number,
+      default: 0
+    },
   },
+
 
   computed: {
     posterPath() {
       return imagePath(this.image, this.posterSize);
     },
-  }
+  },
 };
 </script>
 
-<style scoped lang="scss">
-</style>
