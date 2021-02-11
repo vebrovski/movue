@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "outDir": "./dist",
     "module": "es2015",
     "moduleResolution": "node",
     "target": "es5",
@@ -41,6 +42,7 @@
     "./src/**/*"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "./dist/**/*"
   ]
 }
