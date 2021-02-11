@@ -1,14 +1,14 @@
 <template>
   <li class="list__item">
-    <slot></slot>
+    <slot>
+      {{ item }}
+    </slot>
   </li>
 </template>
 
 <script>
-  export default {
-    name: "ListItem",
-  }
+export default {
+  name: "ListItem",
+  props: ['item']
+};
 </script>
-
-<style scoped lang="scss">
-</style>
