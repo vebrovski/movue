@@ -14,7 +14,8 @@
         {{ title }}
       </Title>
       <div class="card__details">
-        <VoteScore 
+        <VoteScore
+          v-if="score > 0"
           class="card__vote-score"
           :score="score"
         ></VoteScore>
@@ -74,7 +75,7 @@ export default {
 
   computed: {
     posterPath() {
-      return imagePath(this.image, this.posterSize);
+      return imagePath(this.image, this.imageSize);
     },
   },
 };
