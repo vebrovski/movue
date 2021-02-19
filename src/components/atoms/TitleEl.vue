@@ -2,7 +2,7 @@
 
 <script>
 export default {
-  name: "Title",
+  name: "TitleEl",
 
   props: {
     level: {
