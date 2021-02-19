@@ -6,13 +6,13 @@
       class="card__poster"
     ></Poster>
     <div class="card__content">
-      <Title
+      <TitleEl
         v-if="title"
         class="card__title" 
         :level="3"
       >
         {{ title }}
-      </Title>
+      </TitleEl>
       <div class="card__details">
         <VoteScore
           v-if="score > 0"
@@ -28,13 +28,13 @@
 import { imagePath } from "@utils/imagePath";
 import Poster from "@components/molecules/Poster.vue";
 import VoteScore from "@components/molecules/VoteScore.vue";
-import Title from "@components/atoms/Title.vue";
+import TitleEl from "@components/atoms/TitleEl.vue";
 
 export default {
   name: "Card",
 
   components: {
-    Title,
+    TitleEl,
     VoteScore,
     Poster,
   },
