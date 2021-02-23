@@ -6,20 +6,107 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    popularItems: []
+    moviesPopular: [],
+    moviesLatest: [],
+    moviesNowPlaying: [],
+    moviesUpcoming: [],
+    moviesTopRated: [],
+
+    tvPopular: [],
+    tvLatest: [],
+    tvAiringToday: [],
+    tvOnTheAir: [],
+    tvTopRated: [],
+
+    peoplePopular: [],
+    peopleLatest: [],
   },
+
   mutations: {
-    setPopularItems(state, payload) {
-      state.popularItems = payload
+    setItemsStore(state, {results, mediaType, listType}) {
+      if (mediaType === 'movie') {
+        switch(listType) {
+          case 'latest':
+            state.moviesLatest = results
+            break
+          
+          case 'now_playing':
+            state.moviesNowPlaying = results
+            break
+
+          case 'popular':
+            state.moviesPopular = results
+            break
+
+          case 'top_rated':
+            state.moviesTopRated = results
+            break
+
+          case 'upcoming':
+            state.moviesUpcoming = results
+            break
+
+          default:
+            return;
+        }
+      }
+
+      if (mediaType === 'tv') {
+        switch(listType) {
+          case 'latest':
+            state.tvLatest = results
+            break
+          
+          case 'airing_today':
+            state.tvAiringToday = results
+            break
+
+          case 'on_the_air':
+            state.tvPopular = results
+            break
+
+          case 'top_rated':
+            state.tvTopRated = results
+            break
+
+          case 'popular':
+            state.tvPopular = results
+            break
+
+          default:
+            return;
+        }
+      }
+
+      if (mediaType === 'people') {
+        switch(listType) {
+          case 'latest':
+            state.peopleLatest = results
+            break
+
+          case 'popular':
+            state.peoplePopular = results
+            break
+
+          default:
+            return;
+        }
+      }
     }
   },
+
   actions: {
-    getPopularItems(context, payload) {
-      getItems(payload.mediaType, payload.listType).then(response => {
-        context.commit('setPopularItems', response.data.results)
+    getItemsStore( { commit }, { mediaType, listType } ) {
+      getItems(mediaType, listType).then(response => {
+        commit('setItemsStore', {
+          results: response.data.results,
+          mediaType: mediaType,
+          listType: listType
+        })
       })
     }
   },
+
   modules: {
   }
 })
