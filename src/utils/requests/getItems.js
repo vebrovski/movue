@@ -9,7 +9,7 @@ const api = new MovueApi();
  * @param mediaType - movie, tv, person.
  * @param listType for movies - latest, now_playing, popular, top_rated, upcoming.
  * @param listType for tv - latest, airing_today, on_the_air, popular, top_rated.
- * @param listType for person - latest, popular.
+ * @param listType for people - latest, popular.
  * @param query - query string, ex. language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1.
  * @returns {Promise<AxiosResponse<T>>}
  */
