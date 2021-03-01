@@ -29,6 +29,7 @@ module.exports = {
       '@requests': path.resolve(__dirname, `${src}/utils/requests`),
       '@router': path.resolve(__dirname, `${src}/router`),
       '@store': path.resolve(__dirname, `${src}/store`),
+      '@scss': path.resolve(__dirname, `${src}/scss`),
     }
   },
 
@@ -64,7 +65,14 @@ module.exports = {
           //     vars: { ...themeVariables },
           //   },
           // },
-          'sass-loader'
+          {
+            loader: 'sass-loader',
+            options: {
+              additionalData: `
+                @import '~@scss/variables.scss';
+              `
+            }
+          }
         ] 
       },
 
