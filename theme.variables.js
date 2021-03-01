@@ -11,7 +11,7 @@ module.exports = {
     fontWeight: 300,
     lineHeight: 1.5,
     textColor: '#fff',
-    borderColor: 'rgba(255, 255, 255, .5)',
+    borderColor: '#5b5b5b',
   },
 
   // Color palette (do not use properties such as lightGray, better to use
