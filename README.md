@@ -14,5 +14,6 @@ NodeJS v12 and Yarn package manager are required for this project.
   
 ### Installation & Setup
 
+- Go to theme.variables.js file in root directory and specify your variables.
 - To run a local development server run `yarn dev`.
 - To compile the app run `yarn build` and it will build the files in `dist/` folder.
