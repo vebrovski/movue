@@ -5,11 +5,17 @@
 // noinspection CssInvalidAtRule
 @tailwind utilities;
 
-/* || GENERATED VARIABLES, see theme.variables.js file */
-@import '~@src/scss/generated';
-
 /* || VARIABLES */
-@import '~@src/scss/variables';
+@import '~@scss/variables';
+
+/* || MIXINS */
+@import '~@scss/utils/mixins';
+
+/* || FUNCTIONS */
+@import '~@scss/utils/functions';
+
+/* || BASE */
+@import '~@scss/root';
 
 /* || FONTS */
-@import "~@src/scss/fonts";
+@import "~@scss/fonts";
