@@ -11,7 +11,7 @@ module.exports = {
     fontWeight: 300,
     lineHeight: 1.5,
     textColor: '#fff',
-    borderColor: '#e3e3e3',
+    borderColor: 'rgba(255, 255, 255, .5)',
   },
 
   // Color palette (do not use properties such as lightGray, better to use
@@ -19,12 +19,16 @@ module.exports = {
   // ---------------------------------------------------------------------------
 
   colors: {
-    primary: '#000000',
+    primary: '#000',
     secondary: '#01b4e4',
+    background: '#141414',
     gray: '#828282',
     grayLight: '#e3e3e3',
-    greenLight: 'rgb(30,213,169)',
-    blueLight: 'rgb(1,180,228)',
+    greenLight: 'rgb(30, 213, 169)',
+    blueLight: 'rgb(1, 180, 228)',
+    scoreRed: '#d0225d',
+    scoreYellow: '#d2d531',
+    scoreGreen: '#21d07a'
   },
 
   // Headings
