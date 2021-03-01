@@ -9,7 +9,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "js-to-scss": "json-to-scss ./src/utils/variables/processVariables.js ./src/scss/generated.scss --sk='' --p=$theme: ",
-    "prod": "webpack --mode production",
+    "prod": "yarn js-to-scss && yarn webpack --mode production",
     "dev": "yarn js-to-scss && yarn webpack serve --mode development --hot"
   },
   "dependencies": {
