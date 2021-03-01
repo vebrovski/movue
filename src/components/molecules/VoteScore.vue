@@ -1,7 +1,13 @@
 <template>
-  <div class="vote-score" :style="style">
+  <div 
+    class="vote-score" 
+    :style="style"
+  >
     {{ scorePercent }}
-    <sup class="vote-score__percent-sign" :style="stylePercent"> % </sup>
+    <sup 
+      class="vote-score__percent-sign" 
+      :style="stylePercent"
+    > % </sup>
     <canvas
       ref="voteScoreCanvas"
       class="vote-score__border"
