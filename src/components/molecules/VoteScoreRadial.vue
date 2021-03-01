@@ -22,7 +22,7 @@
  * There is also a vue-radial-progress package for this kind of thing.
  */
 export default {
-  name: "VoteScore",
+  name: "VoteScoreRadial",
 
   props: {
     score: {
