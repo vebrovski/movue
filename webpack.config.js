@@ -1,9 +1,10 @@
-const src = "./src";
-const dist = "./dist";
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { VueLoaderPlugin } = require('vue-loader');
-const DotEnv = require('dotenv-webpack');
+const src = "./src",
+      dist = "./dist",
+      path = require('path'),
+      HtmlWebpackPlugin = require('html-webpack-plugin'),
+      { VueLoaderPlugin } = require('vue-loader'),
+      DotEnv = require('dotenv-webpack');
+      //themeVariables = require('./src/utils/variables/processVariables');
 
 module.exports = {
   entry: {
@@ -52,9 +53,17 @@ module.exports = {
       { 
         test: /\.scss|css$/, 
         use: [
+          'vue-style-loader',
           'style-loader', 
           'css-loader',
           'postcss-loader',
+          // {
+          //   loader: '@epegzz/sass-vars-loader',
+          //   options: {
+          //     syntax: 'scss',
+          //     vars: { ...themeVariables },
+          //   },
+          // },
           'sass-loader'
         ] 
       },

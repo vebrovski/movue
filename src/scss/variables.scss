@@ -1,0 +1,44 @@
+// =============================================================================
+// Variables from generated.scss.
+// =============================================================================
+$customProperties: map-get($theme, customProperties);
+$mediaQueries: map-get($theme, mediaQueries);
+$breakpoints: map-get($theme, breakpoints);
+$headerHeights: map-get($theme, headerHeights);
+$whitespaces: map-get($theme, whitespaces);
+$gutters: map-get($theme, gutters);
+$gaps: map-get($theme, gaps);
+
+// =============================================================================
+// Other custom variables.
+// =============================================================================
+$max-width: map-get($breakpoints, 'max');
+
+/* || COLORS */
+$primary-color: var(--primaryColor);
+$secondary-color: var(--secondaryColor);
+$border-color: var(--borderColor);
+$text-color: var(--textColor);
+$gray-color: var(--grayColor);
+$gray-light-color: var(--grayLightColor);
+$green-light-color: var(--greenLightColor);
+$blue-light-color: var(--blueLightColor);
+
+/* || GLOBAL FONT PROPERTIES */
+$font-family: 'Source Sans Pro', sans-serif;
+$font-size: var(--fontSize);
+$font-weight: var(--fontWeight);
+$line-height: var(--lineHeight);
+$font-weight-medium: 500;
+$font-weight-semi-bold: 600;
+$font-weight-bold: 700;
+$font-weight-extra-bold: 900;
+
+/* || ACCESSIBILITY COLOR AIDS */
+$a11y-text: #757575;
+$a11y-text--hover: #1d1d1d;
+$a11y-bg--hover: #f2f2f2;
+$a11y-bg--active: #e3e3e3;
+
+/* || BORDERS */
+$border-radius: 10px;
