@@ -21,21 +21,19 @@ $max-width: map-get($breakpoints, 'max');
 /* || COLORS */
 $primary-color: var(--primaryColor);
 $secondary-color: var(--secondaryColor);
-$border-color: var(--borderColor);
+$background-color: var(--backgroundColor);
 $text-color: var(--textColor);
-$gray-color: var(--grayColor);
-$gray-light-color: var(--grayLightColor);
-$green-light-color: var(--greenLightColor);
-$blue-light-color: var(--blueLightColor);
+$border-color: var(--borderColor);
 $score-red-color: var(--scoreRedColor);
 $score-yellow-color: var(--scoreYellowColor);
 $score-green-color: var(--scoreGreenColor);
 
 /* || GLOBAL FONT PROPERTIES */
-$font-family: 'Source Sans Pro', sans-serif;
+$font-family: "Source Sans Pro", Arial, sans-serif;
 $font-size: var(--fontSize);
-$font-weight: var(--fontWeight);
 $line-height: var(--lineHeight);
+$font-weight: var(--fontWeight);
+$font-weight-light: 300;
 $font-weight-medium: 500;
 $font-weight-semi-bold: 600;
 $font-weight-bold: 700;
