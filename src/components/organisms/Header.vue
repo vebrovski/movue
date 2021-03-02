@@ -1,28 +1,42 @@
 <template>
-  <div id="header" class="items-center justify-between">
-    <container class="header__container">
-      <columns
+  <div 
+    id="header" 
+    class="items-center justify-between"
+  >
+    <Container class="header__container">
+      <Columns
         class="header__columns items-center justify-between"
         :count="2"
-        customColumnClass="header__column"
+        custom-column-class="header__column"
       >
-        <template v-slot:column-1>
-          <columns class=" items-center" :count="2">
-            <template v-slot:column-1>
-              <images class="logo" :path="Logo" link="/" :width="154" :height="20"></images>
+        <template #column-1>
+          <Columns 
+            class="items-center" 
+            :count="2"
+          >
+            <template #column-1>
+              <Images
+                class="logo"
+                :path="Logo"
+                link="/"
+                :width="154"
+                :height="20"
+              />
             </template>
-            <template v-slot:column-2>
-              <main-menu class="px-4"></main-menu>
+            <template #column-2>
+              <MainMenu class="px-4"></MainMenu>
             </template>
-          </columns>
+          </Columns>
         </template>
-        <template v-slot:column-2>
-          <div class="icon-search1" @click="$emit('searchActivate')"></div>
-          <columns>
-          </columns>
+        <template #column-2>
+          <div 
+            class="icon-search1" 
+            @click="$emit('searchActivate')"
+          ></div>
+          <Columns></Columns>
         </template>
-      </columns>
-    </container>
+      </Columns>
+    </Container>
   </div>
 </template>
 
@@ -35,14 +49,19 @@ import MainMenu from "@components/organisms/MainMenu.vue";
 
 export default {
   name: "AppHeader",
-  components: { Container, Columns, Images, MainMenu },
+  components: { 
+    Container,
+    Columns,
+    Images,
+    MainMenu
+  },
 
   data() {
     return {
-      Logo
+      Logo,
     };
   },
-}
+};
 </script>
 
 <style scoped>
