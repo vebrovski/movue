@@ -1,10 +1,13 @@
-/* || GENERATED VARIABLES, see theme.variables.js file */
+/* ||
+GENERATED VARIABLES
+Generated from `theme.variables.js` by runing `js-to-scss` script in `package.json`.
+*/
 @import '~@scss/generated';
 
-// =============================================================================
-// Variables from generated.scss.
-// =============================================================================
+/* || VARIABLES FROM generated.scss */
 $customProperties: map-get($theme, customProperties);
+$globalStyles: map-get($theme, globalStyles);
+$globalStyles: map-get($theme, brandingColors);
 $mediaQueries: map-get($theme, mediaQueries);
 $breakpoints: map-get($theme, breakpoints);
 $headerHeights: map-get($theme, headerHeights);
@@ -12,9 +15,7 @@ $whitespaces: map-get($theme, whitespaces);
 $gutters: map-get($theme, gutters);
 $gaps: map-get($theme, gaps);
 
-// =============================================================================
-// Other custom variables.
-// =============================================================================
+/* || OTHER CUSTOM VARIABLES */
 $max-width: map-get($breakpoints, 'max');
 
 /* || COLORS */
@@ -26,6 +27,9 @@ $gray-color: var(--grayColor);
 $gray-light-color: var(--grayLightColor);
 $green-light-color: var(--greenLightColor);
 $blue-light-color: var(--blueLightColor);
+$score-red-color: var(--scoreRedColor);
+$score-yellow-color: var(--scoreYellowColor);
+$score-green-color: var(--scoreGreenColor);
 
 /* || GLOBAL FONT PROPERTIES */
 $font-family: 'Source Sans Pro', sans-serif;
@@ -45,3 +49,10 @@ $a11y-bg--active: #e3e3e3;
 
 /* || BORDERS */
 $border-radius: 10px;
+
+:root {
+  // Set all the defined custom properties (CSS Variables).
+  @each $prop, $value in $customProperties {
+    #{$prop}: $value;
+  }
+}

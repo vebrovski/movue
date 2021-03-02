@@ -1,50 +1,32 @@
 $theme:(
   customProperties: (
-    --primaryColor: #000,
+    --primaryColor: #777,
     --secondaryColor: #01b4e4,
     --backgroundColor: #141414,
-    --grayColor: #828282,
-    --grayLightColor: #e3e3e3,
-    --greenLightColor: rgb(30, 213, 169),
-    --blueLightColor: rgb(1, 180, 228),
+    --textColor: #fff,
+    --borderColor: #5b5b5b,
     --scoreRedColor: #d0225d,
     --scoreYellowColor: #d2d531,
     --scoreGreenColor: #21d07a,
     --fontSize: 16px,
     --fontWeight: 300,
-    --lineHeight: 1.5,
-    --borderColor: #5b5b5b,
-    --textColor: #fff
+    --lineHeight: 1.5
   ),
   globalStyles: (
     fontSize: var(--fontSize),
     fontWeight: var(--fontWeight),
-    lineHeight: var(--lineHeight),
-    textColor: var(--textColor),
-    borderColor: var(--borderColor)
+    lineHeight: var(--lineHeight)
   ),
   brandingColors: (
     primaryColor: var(--primaryColor),
     secondaryColor: var(--secondaryColor),
     backgroundColor: var(--backgroundColor),
-    grayColor: var(--grayColor),
-    grayLightColor: var(--grayLightColor),
-    greenLightColor: var(--greenLightColor),
-    blueLightColor: var(--blueLightColor),
+    textColor: var(--textColor),
+    borderColor: var(--borderColor),
     scoreRedColor: var(--scoreRedColor),
     scoreYellowColor: var(--scoreYellowColor),
     scoreGreenColor: var(--scoreGreenColor)
   ),
-  primaryColor: var(--primaryColor),
-  secondaryColor: var(--secondaryColor),
-  backgroundColor: var(--backgroundColor),
-  grayColor: var(--grayColor),
-  grayLightColor: var(--grayLightColor),
-  greenLightColor: var(--greenLightColor),
-  blueLightColor: var(--blueLightColor),
-  scoreRedColor: var(--scoreRedColor),
-  scoreYellowColor: var(--scoreYellowColor),
-  scoreGreenColor: var(--scoreGreenColor),
   mediaQueries: (
     sm: "(min-width: 576px)",
     sm-down: "(max-width: 575.98px)",
@@ -64,18 +46,14 @@ $theme:(
   globals: (
     fontSize: 16,
     fontWeight: 300,
-    lineHeight: 1.5,
-    textColor: #fff,
-    borderColor: #5b5b5b
+    lineHeight: 1.5
   ),
   colors: (
-    primary: #000,
+    primary: #777,
     secondary: #01b4e4,
     background: #141414,
-    gray: #828282,
-    grayLight: #e3e3e3,
-    greenLight: rgb(30, 213, 169),
-    blueLight: rgb(1, 180, 228),
+    text: #fff,
+    border: #5b5b5b,
     scoreRed: #d0225d,
     scoreYellow: #d2d531,
     scoreGreen: #21d07a

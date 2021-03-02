@@ -7,12 +7,9 @@ module.exports = {
     '--fontSize': `${vars.globals.fontSize}px`,
     '--fontWeight': `${vars.globals.fontWeight}`,
     '--lineHeight': `${vars.globals.lineHeight}`,
-    '--borderColor': `${vars.globals.borderColor}`,
-    '--textColor': `${vars.globals.textColor}`,
   },
   globalStyles: assignToCustomProps(Object.keys(vars.globals)),
   brandingColors: assignToCustomProps(Object.keys(vars.colors), '', 'Color'),
-  ...assignToCustomProps(Object.keys(vars.colors), '', 'Color'),
   mediaQueries: createMediaList(vars.breakpoints),
   ...vars,
 };
