@@ -1,0 +1,11 @@
+.container {
+  position: relative;
+  width: 100%;
+  max-width: $max-width;
+  padding: 0 40px;
+  margin: 0 auto;
+}
+
+.container_no-padding {
+  padding: 0;
+}
