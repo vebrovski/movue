@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="app">
     <router-view></router-view>
   </div>
 </template>
@@ -11,4 +11,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.app {
+  max-width: $max-width;
+  margin: 0 auto;
+}
 </style>
