@@ -16,7 +16,7 @@ $gutters: map-get($theme, gutters);
 $gaps: map-get($theme, gaps);
 
 /* || OTHER CUSTOM VARIABLES */
-$max-width: map-get($breakpoints, 'max');
+$max-width: map-get($breakpoints, 'max') + px;
 
 /* || COLORS */
 $primary-color: var(--primaryColor);
