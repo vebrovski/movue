@@ -8,7 +8,7 @@ module.exports = {
 
   globals: {
     fontSize: 16,
-    fontWeight: 300,
+    fontWeight: 400,
     lineHeight: 1.5
   },
 
