@@ -70,6 +70,7 @@ module.exports = {
             options: {
               additionalData: `
                 @import '~@scss/variables.scss';
+                @import '~@scss/utils/functions.scss';
               `
             }
           }
