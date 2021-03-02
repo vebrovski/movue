@@ -11,9 +11,8 @@ $globalStyles: map-get($theme, brandingColors);
 $mediaQueries: map-get($theme, mediaQueries);
 $breakpoints: map-get($theme, breakpoints);
 $headerHeights: map-get($theme, headerHeights);
-$whitespaces: map-get($theme, whitespaces);
 $gutters: map-get($theme, gutters);
-$gaps: map-get($theme, gaps);
+$spacings: map-get($theme, spacings);
 
 /* || OTHER CUSTOM VARIABLES */
 $max-width: map-get($breakpoints, 'max') + px;

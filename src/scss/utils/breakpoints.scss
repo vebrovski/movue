@@ -51,30 +51,25 @@
 }
 
 // =============================================================================
-// Define gap and gutter custom properties for each breakpoint.
+// Define custom properties for each breakpoint.
 // =============================================================================
 :root {
   @each $prop, $value in $breakpoints {
     $headerHeight: map-get($headerHeights, $prop);
-    $whitespace: map-get($whitespaces, $prop);
+    $spacing: map-get($spacings, $prop);
     $gutter: map-get($gutters, $prop);
-    $gap: map-get($gaps, $prop);
 
     @include breakpoint($prop) {
       @if $headerHeight != null {
         --headerHeight: #{rem-calc($headerHeight)};
       }
 
-      @if $whitespace != null {
-        --whitespace: #{rem-calc($whitespace)};
+      @if $spacing != null {
+        --spacing: #{rem-calc($spacing)};
       }
 
       @if $gutter != null {
         --gutter: #{rem-calc($gutter)};
-      }
-
-      @if $gap != null {
-        --gap: #{rem-calc($gap)};
       }
     }
   }

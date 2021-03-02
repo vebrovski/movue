@@ -51,7 +51,7 @@ module.exports = {
     max: 1280,
   },
 
-  // Gutters
+  // Gutters (for column)
   // ---------------------------------------------------------------------------
 
   gutters: {
@@ -63,28 +63,16 @@ module.exports = {
     max: 120,
   },
 
-  // Gaps
+  // Spacing (space between elements)
   // ---------------------------------------------------------------------------
 
-  gaps: {
+  spacings: {
     xs: 5,
     sm: 5,
     md: 10,
     lg: 20,
     xl: 35,
     max: 35,
-  },
-
-  // Whitespaces
-  // ---------------------------------------------------------------------------
-
-  whitespaces: {
-    xs: 40,
-    sm: 40,
-    md: 60,
-    lg: 70,
-    xl: 90,
-    max: 90,
   },
 
   // Header heights
