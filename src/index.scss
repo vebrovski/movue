@@ -1,9 +1,11 @@
 // noinspection CssInvalidAtRule
-@tailwind base;
+//@tailwind base;
 // noinspection CssInvalidAtRule
-@tailwind components;
+//@tailwind components;
 // noinspection CssInvalidAtRule
-@tailwind utilities;
+//@tailwind utilities;
+
+@import '~normalize.css/normalize.css';
 
 /* || VARIABLES */
 @import '~@scss/variables';
