@@ -89,10 +89,13 @@ export default {
     enableDefaultSlider: {
       type: Boolean,
       default: true,
-    },
+    }
   },
 
-  computed: {
+  data() {
+    return {
+      slider: null,
+    }
   },
 
   watch: {
@@ -107,7 +110,7 @@ export default {
 
   methods: {
     sliderInit() {
-      new Swiper(".swiper-container", {
+      this.slider = new Swiper(".swiper-container", {
         spaceBetween: 10,
         slidesPerView: 7,
         slidesPerGroup: 7,
