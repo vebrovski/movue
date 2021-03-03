@@ -66,19 +66,19 @@ export default {
 
   watch: {
     moviesPopular() {
-      if (this.moviesPopular.length > 0) {
+      if (this.mediaType === 'movie') {
         this.items = this.moviesPopular
       }
     },
 
     tvPopular() {
-      if (this.tvPopular.length > 0) {
+      if (this.mediaType === 'tv') {
         this.items = this.tvPopular
       }
     },
 
     peoplePopular() {
-      if (this.peoplePopular.length > 0) {
+      if (this.mediaType === 'people') {
         this.items = this.peoplePopular
       }
     }
