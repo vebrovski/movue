@@ -72,13 +72,13 @@ export default {
     },
 
     tvPopular() {
-      if (this.tvPopular) {
+      if (this.tvPopular.length > 0) {
         this.items = this.tvPopular
       }
     },
 
     peoplePopular() {
-      if (this.peoplePopular) {
+      if (this.peoplePopular.length > 0) {
         this.items = this.peoplePopular
       }
     }
