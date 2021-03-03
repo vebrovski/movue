@@ -1,24 +1,24 @@
 <template>
-  <div class="card">
+  <div
+    class="card"
+    @mouseenter="showDetails = true"
+    @mouseleave="showDetails = true"
+  >
     <Poster 
-      v-if="image"
-      :path="posterPath"
-      class="card__poster"
-    ></Poster>
-    <div class="card__content">
-      <TitleEl
-        v-if="title"
-        class="card__title" 
-        :level="3"
-      >
+      v-if="image" 
+      :path="posterPath" 
+      class="card__poster" 
+    />
+    <div v-if="showDetails === true" class="card__content">
+      <TitleEl v-if="title" class="card__title" :level="3">
         {{ title }}
       </TitleEl>
       <div class="card__details">
-        <VoteScore
+        <VoteScoreLinear
           v-if="score > 0"
           class="card__vote-score"
           :score="score"
-        ></VoteScore>
+        ></VoteScoreLinear>
       </div>
     </div>
   </div>
@@ -27,7 +27,7 @@
 <script>
 import { imagePath } from "@utils/imagePath";
 import Poster from "@components/molecules/Poster.vue";
-import VoteScore from "@components/molecules/VoteScore.vue";
+import VoteScoreLinear from "@components/molecules/VoteScoreLinear.vue";
 import TitleEl from "@components/atoms/TitleEl.vue";
 
 export default {
@@ -35,7 +35,7 @@ export default {
 
   components: {
     TitleEl,
-    VoteScore,
+    VoteScoreLinear,
     Poster,
   },
 
@@ -60,7 +60,7 @@ export default {
     },
     image: {
       type: String,
-      default: ""
+      default: "",
     },
     imageSize: {
       type: String,
@@ -68,10 +68,15 @@ export default {
     },
     score: {
       type: Number,
-      default: 0
+      default: 0,
     },
   },
 
+  data() {
+    return {
+      showDetails: true,
+    };
+  },
 
   computed: {
     posterPath() {
@@ -80,4 +85,12 @@ export default {
   },
 };
 </script>
+
+<style scoped lang="scss">
+  .card__content {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+</style>
 
