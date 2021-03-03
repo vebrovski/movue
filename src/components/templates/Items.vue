@@ -13,6 +13,3 @@ export default {
   components: { DefaultSlot },
 };
 </script>
-
-<style scoped lang="scss">
-</style>
