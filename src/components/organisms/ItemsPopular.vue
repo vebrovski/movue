@@ -1,6 +1,6 @@
 <template>
   <Items class="popular-items">
-    <Title :level="2">{{ title }}</Title>
+    <TitleEl :level="2">{{ title }}</TitleEl>
     <ItemsList v-if="templateType === 'list'" :items="items" class="popular-list"></ItemsList>
     <ItemsSlider v-if="templateType === 'slider'" :items="items" class="popular-slider"></ItemsSlider>
   </Items>
@@ -33,7 +33,7 @@ export default {
      */
     mediaType: {
       type: String,
-      default: "movie", // @see getItems file for available values.
+      default: "movie",
     },
 
     /**
