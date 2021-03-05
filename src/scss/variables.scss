@@ -14,7 +14,7 @@ $headerHeights: map-get($theme, headerHeights);
 $gutters: map-get($theme, gutters);
 $spacings: map-get($theme, spacings);
 
-/* || OTHER CUSTOM VARIABLES */
+/* || OTHER SPECIFIC VARIABLES FROM generated.scss */
 $max-width: map-get($breakpoints, 'max') + px;
 
 /* || COLORS */
