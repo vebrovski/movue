@@ -1,6 +1,5 @@
 <template>
   <Items class="popular-items">
-    <TitleEl :level="2">{{ title }}</TitleEl>
     <ItemsList v-if="templateType === 'list'" :items="items" class="popular-list"></ItemsList>
     <ItemsSlider v-if="templateType === 'slider'" :items="items" class="popular-slider"></ItemsSlider>
   </Items>
@@ -10,15 +9,13 @@
 import { mapActions, mapState } from "vuex";
 import Items from '@components/templates/Items.vue'
 import ItemsSlider from '@components/organisms/ItemsSlider.vue';
-import TitleEl from '@components/atoms/TitleEl.vue';
 
 export default {
   name: "ItemsPopular",
 
   components: {
     Items,
-    ItemsSlider,
-    TitleEl,
+    ItemsSlider
   },
 
   props: {
