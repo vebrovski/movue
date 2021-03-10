@@ -1,75 +1,67 @@
 <template>
-  <div 
-    class="toggle" 
-    :class="{ 'toggle_is-inverted': invert === true }"
-  >
+  <div class="toggle">
     <button-el
+      v-for="(button, index) in values.length"
+      :key="index"
       type="button"
       class="toggle__button"
-      :class="{'toggle__button_is-active' : isActive === true}"
-      :text="toggleOnText"
-      @click.native="toggleOn"
-    />
-    <button-el 
-      type="button"
-      class="toggle__button"
-      :class="{'toggle__button_is-active' : isActive === false}"
-      :text="toggleOffText"
-      @click.native="toggleOff"
+      :class="{ 'toggle__button_is-active': index === isActive }"
+      :text="labels[index]"
+      @click.native="toggle(index, values[index])"
     />
   </div>
 </template>
 
 <script>
-  import ButtonEl from "@components/atoms/ButtonEl.vue";
+import ButtonEl from "@components/atoms/ButtonEl.vue";
 
-  export default {
-    name: "Toggle",
+export default {
+  name: "Toggle",
 
-    components: {
-      ButtonEl
+  components: {
+    ButtonEl,
+  },
+
+  props: {
+    /**
+     * Button labels.
+     * Number of buttons are based on number of labels.
+     */
+    labels: {
+      type: Array,
+      default: () => ["On", "Off"],
     },
 
-    props: {
-      toggleOnText: {
-        default: 'On',
-        type: String
-      },
-
-      toggleOffText: {
-        default: 'Off',
-        type: String
-      },
-
-      toggleId: {
-        type: String,
-        required: true
-      },
-
-      invert: {
-        default: false
-      }
-    },
-
-    data() {
-      return {
-        isActive: true
-      }
-    },
-
-    methods: {
-      toggleOn() {
-        this.isActive = true;
-        this.$emit('toggleOn', this.toggleId);
-      },
-
-      toggleOff() {
-        this.isActive = false;
-        this.$emit('toggleOff', this.toggleId);
-      }
+    values: {
+      type: Array,
+      default: () => [],
     }
-  }
+  },
+
+  data() {
+    return {
+      isActive: 0,
+    };
+  },
+
+  methods: {
+    toggle(index, value) {
+      this.isActive = index;
+      this.$emit("toggle", value);
+    },
+  },
+};
 </script>
 
 <style scoped lang="scss">
+.toggle {
+  position: relative;
+  display: inline-flex;
+}
+
+.toggle__button {
+  &_is-active {
+    border-color: $red-color;
+  }
+}
 </style>
