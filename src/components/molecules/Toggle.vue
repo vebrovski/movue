@@ -47,7 +47,10 @@ export default {
   methods: {
     toggle(index, value) {
       this.isActive = index;
-      this.$emit("toggle", value);
+      this.$emit("toggle", {
+        index: index,
+        value: value
+      });
     },
   },
 };
