@@ -21,11 +21,11 @@
         {{ title }}
       </TitleEl>
       <div class="card__details">
-        <VoteScoreLinear
+        <VoteScore
           v-if="score > 0"
           class="card__vote-score"
           :score="score"
-        ></VoteScoreLinear>
+        ></VoteScore>
       </div>
     </div>
   </div>
@@ -34,7 +34,7 @@
 <script>
 import { imagePath } from "@utils/imagePath";
 import Poster from "@components/molecules/Poster.vue";
-import VoteScoreLinear from "@components/molecules/VoteScoreLinear.vue";
+import VoteScore from "@components/molecules/VoteScore.vue";
 import TitleEl from "@components/atoms/TitleEl.vue";
 
 export default {
@@ -42,7 +42,7 @@ export default {
 
   components: {
     TitleEl,
-    VoteScoreLinear,
+    VoteScore,
     Poster,
   },
 
