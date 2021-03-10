@@ -22,9 +22,9 @@ module.exports = {
     background: '#141414',
     text: '#fff',
     border: '#5b5b5b',
-    scoreRed: '#d0225d',
-    scoreYellow: '#d2d531',
-    scoreGreen: '#21d07a'
+    red: '#d0225d',
+    yellow: '#d2d531',
+    green: '#21d07a',
   },
 
   // Headings

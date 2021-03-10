@@ -5,9 +5,9 @@ $theme:(
     --backgroundColor: #141414,
     --textColor: #fff,
     --borderColor: #5b5b5b,
-    --scoreRedColor: #d0225d,
-    --scoreYellowColor: #d2d531,
-    --scoreGreenColor: #21d07a,
+    --redColor: #d0225d,
+    --yellowColor: #d2d531,
+    --greenColor: #21d07a,
     --fontSize: 10px,
     --fontWeight: 400,
     --lineHeight: 1.5
@@ -23,9 +23,9 @@ $theme:(
     backgroundColor: var(--backgroundColor),
     textColor: var(--textColor),
     borderColor: var(--borderColor),
-    scoreRedColor: var(--scoreRedColor),
-    scoreYellowColor: var(--scoreYellowColor),
-    scoreGreenColor: var(--scoreGreenColor)
+    redColor: var(--redColor),
+    yellowColor: var(--yellowColor),
+    greenColor: var(--greenColor)
   ),
   mediaQueries: (
     sm: "(min-width: 576px)",
@@ -54,9 +54,9 @@ $theme:(
     background: #141414,
     text: #fff,
     border: #5b5b5b,
-    scoreRed: #d0225d,
-    scoreYellow: #d2d531,
-    scoreGreen: #21d07a
+    red: #d0225d,
+    yellow: #d2d531,
+    green: #21d07a
   ),
   headings: (
     h1: 32,
