@@ -25,6 +25,7 @@
           v-if="score > 0"
           class="card__vote-score"
           :score="score"
+          :score-size="5"
         ></VoteScore>
       </div>
     </div>
