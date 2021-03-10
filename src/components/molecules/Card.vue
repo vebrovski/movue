@@ -7,10 +7,17 @@
     <Poster 
       v-if="image" 
       :path="posterPath" 
-      class="card__poster" 
+      class="card__poster"
     />
-    <div v-if="showDetails === true" class="card__content">
-      <TitleEl v-if="title" class="card__title" :level="3">
+    <div 
+      v-if="showDetails === true"
+      class="card__content"
+    >
+      <TitleEl 
+        v-if="title" 
+        class="card__title" 
+        :level="3"
+      >
         {{ title }}
       </TitleEl>
       <div class="card__details">
@@ -87,10 +94,10 @@ export default {
 </script>
 
 <style scoped lang="scss">
-  .card__content {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-  }
+.card__content {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
 </style>
 
