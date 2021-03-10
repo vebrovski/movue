@@ -3,6 +3,7 @@ html {
   height: 100%;
   box-sizing: border-box;
   font-family: sans-serif;
+  font-size: $font-size;
 }
 
 *,
@@ -17,9 +18,37 @@ body {
   background-color: $background-color;
   color: $text-color;
   font-family: $font-family;
-  font-size: $font-size;
   font-style: normal;
   font-weight: $font-weight;
+}
+
+/* || HEADINGS */
+$headings: map-get($theme, headings);
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+h1 {
+  font-size: map-get($headings, 'h1') + px;
+  font-weight: $font-weight-bold;
+}
+
+h2 {
+  font-size: map-get($headings, 'h2') + px;
+  font-weight: $font-weight-semi-bold;
+}
+
+h3 {
+  font-size: map-get($headings, 'h3') + px;
+  font-weight: $font-weight-semi-bold;
 }
 
 /* || LISTS */
