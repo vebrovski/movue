@@ -93,14 +93,14 @@ export default {
 }
 
 .vote-score-linear__line_red {
-  background-color: #d0225d;
+  background-color: var(--redColor);
 }
 
 .vote-score-linear__line_yellow {
-  background-color: #d2d531;
+  background-color: var(--yellowColor);
 }
 
 .vote-score-linear__line_green {
-  background-color: #21d07a;
+  background-color: var(--greenColor);
 }
 </style>
