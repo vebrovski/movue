@@ -2,13 +2,10 @@
   <div 
     class="vote-score"
     :class="`vote-score_${template}`" 
-    :style="template === 'radial' ? style : ''"
+    :style="template === 'linear' ? linearStyle : radialStyle"
   >
     {{ scorePercent }}
-    <sup 
-      :class="`vote-score_${template}__percent-sign`" 
-      :style="template === 'radial' ? stylePercent : ''"
-    >
+    <sup class="vote-score__percent-sign">
       % 
     </sup>
     
@@ -28,7 +25,7 @@
     <canvas
       v-if="template === 'radial'"
       ref="voteScoreCanvas"
-      class="vote-score__border"
+      :class="`vote-score_${template}__border`"
       :width="scoreSize"
       :height="scoreSize"
     />
@@ -65,6 +62,10 @@ export default {
       return this.score * 10;
     },
 
+    linearStyle() {
+      return `font-size: ${this.scoreSize * 5}px;`;
+    },
+
     lineStyle() {
       return `width: ${this.scorePercent}%;`;
     },
@@ -73,16 +74,12 @@ export default {
       return this.setLineColor(this.scorePercent);
     },
 
-    style() {
+    radialStyle() {
       return `
         width: ${this.scoreSize + 2}px; 
         height: ${this.scoreSize + 2}px; 
         font-size: ${this.scoreSize / 3}px;
       `;
-    },
-
-    stylePercent() {
-      return `font-size: ${this.scoreSize / 5}px;`;
     },
   },
 
@@ -179,7 +176,7 @@ export default {
   color: white;
 }
 
-.vote-score-radial__border {
+.vote-score_radial__border {
   position: absolute;
   transform: rotate(-90deg);
 }
@@ -193,7 +190,7 @@ export default {
   color: white;
 }
 
-.vote-score_linear__percent-sign {
+.vote-score__percent-sign {
   font-size: 50%;
 }
 
