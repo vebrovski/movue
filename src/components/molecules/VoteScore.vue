@@ -1,14 +1,32 @@
 <template>
   <div 
-    class="vote-score" 
-    :style="style"
+    class="vote-score"
+    :class="`vote-score_${template}`" 
+    :style="template === 'radial' ? style : ''"
   >
     {{ scorePercent }}
     <sup 
-      class="vote-score__percent-sign" 
-      :style="stylePercent"
-    > % </sup>
+      :class="`vote-score_${template}__percent-sign`" 
+      :style="template === 'radial' ? stylePercent : ''"
+    >
+      % 
+    </sup>
+    
+    <div 
+      v-if="template === 'linear'"
+      :class="`vote-score_${template}__border`"
+    >
+      <span 
+        :class="[
+          `vote-score_${template}__line`,
+          lineColor
+        ]"
+        :style="lineStyle"
+      ></span>
+    </div>
+
     <canvas
+      v-if="template === 'radial'"
       ref="voteScoreCanvas"
       class="vote-score__border"
       :width="scoreSize"
@@ -22,7 +40,7 @@
  * There is also a vue-radial-progress package for this kind of thing.
  */
 export default {
-  name: "VoteScoreRadial",
+  name: "VoteScore",
 
   props: {
     score: {
@@ -33,6 +51,13 @@ export default {
       type: Number,
       default: 38,
     },
+    /**
+     * @value linear, radial
+     */
+    template: {
+      type: String,
+      default: 'linear'
+    }
   },
 
   computed: {
@@ -40,14 +65,24 @@ export default {
       return this.score * 10;
     },
 
+    lineStyle() {
+      return `width: ${this.scorePercent}%;`;
+    },
+
+    lineColor() {
+      return this.setLineColor(this.scorePercent);
+    },
+
     style() {
-      return `width: ${this.scoreSize + 2}px; height: ${
-        this.scoreSize + 2
-      }px; font-size: ${this.scoreSize / 3}px`;
+      return `
+        width: ${this.scoreSize + 2}px; 
+        height: ${this.scoreSize + 2}px; 
+        font-size: ${this.scoreSize / 3}px;
+      `;
     },
 
     stylePercent() {
-      return `font-size: ${this.scoreSize / 5}px`;
+      return `font-size: ${this.scoreSize / 5}px;`;
     },
   },
 
@@ -60,6 +95,21 @@ export default {
   },
 
   methods: {
+    setLineColor(percent) {
+      if (percent == 0) {
+        return "#555859";
+      }
+      if (percent >= 0 && percent <= 25) {
+        return "vote-score_linear__line_red";
+      }
+      if (percent > 25 && percent <= 70) {
+        return "vote-score_linear__line_yellow";
+      }
+      if (percent > 70) {
+        return "vote-score_linear__line_green";
+      }
+    },
+
     scoreCircle(percent) {
       if (this.$refs.voteScoreCanvas) {
         const canvas = this.$refs.voteScoreCanvas;
@@ -119,7 +169,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.vote-score {
+.vote-score_radial {
   position: relative;
   display: flex;
   align-items: center;
@@ -129,8 +179,45 @@ export default {
   color: white;
 }
 
-.vote-score__border {
+.vote-score-radial__border {
   position: absolute;
   transform: rotate(-90deg);
+}
+
+.vote-score_linear {
+  position: relative;
+  display: flex;
+  width: 100%;
+  align-items: flex-end;
+  justify-content: left;
+  color: white;
+}
+
+.vote-score_linear__percent-sign {
+  font-size: 50%;
+}
+
+.vote-score_linear__border {
+  position: absolute;
+  width: 100%;
+  height: 5px;
+  background-color: var(--borderColor);
+}
+
+.vote-score_linear__line {
+  display: block;
+  height: inherit;
+}
+
+.vote-score_linear__line_red {
+  background-color: var(--redColor);
+}
+
+.vote-score_linear__line_yellow {
+  background-color: var(--yellowColor);
+}
+
+.vote-score_linear__line_green {
+  background-color: var(--greenColor);
 }
 </style>
