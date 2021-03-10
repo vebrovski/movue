@@ -14,7 +14,7 @@
       <slot>
         <Items
           :media-type="mediaType || defaultMediaType" 
-          :list-type="listType" 
+          :list-type="toggleListTypes" 
           :template-type="templateType"
         />
       </slot>
@@ -45,33 +45,53 @@ export default {
       type: String,
       default: 'tv'
     },
-    listType: {
-      type: String,
-      default: 'popular'
-    },
     templateType: {
       type: String,
       default: 'list'
     },
-    toggleLabels: {
+    config: {
       type: Array,
-      default: () => ['Label 1', 'Label 2'],
-    },
-    toggleValues: {
-      type: Array,
-      default: () => ['Value 1', 'Value 2'],
-    },
+      default: () => [
+        {
+          label: 'Label 1',
+          value: 'Value 1',
+          list: 'popular'
+        },
+        {
+          label: 'Label 2',
+          value: 'Value 2',
+          list: 'popular'
+        }
+      ]
+    }
   },
 
   data() {
     return {
-      mediaType: this.defaultMediaType
+      index: 0,
+      mediaType: this.defaultMediaType,
+      //listType: this.defaultListType,
+    }
+  },
+
+  computed: {
+    toggleLabels() {
+      return this.config.map(item => item.label)
+    },
+
+    toggleValues() {
+      return this.config.map(item => item.value)
+    },
+
+    toggleListTypes() {
+      return this.config[this.index].list
     }
   },
 
   methods: {
-    toggle(value) {
-      this.mediaType = value;
+    toggle(item) {
+      this.index = item.index;
+      this.mediaType = item.value;
     }
   },
 };
