@@ -15,8 +15,8 @@
       >
         <slot :item="item">
           <Card
-            :title="item.title"
-            :image="item.poster_path || item.backdrop_path"
+            :title="item.title || item.name"
+            :image="item.poster_path || item.backdrop_path || item.profile_path"
             :score="item.vote_average"
           />
         </slot>
