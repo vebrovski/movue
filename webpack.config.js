@@ -3,8 +3,8 @@ const src = "./src",
       path = require('path'),
       HtmlWebpackPlugin = require('html-webpack-plugin'),
       { VueLoaderPlugin } = require('vue-loader'),
-      DotEnv = require('dotenv-webpack');
-      //themeVariables = require('./src/utils/variables/processVariables');
+      DotEnv = require('dotenv-webpack'),
+      themeVariables = require('./src/utils/variables/processVariables');
 
 module.exports = {
   entry: {
@@ -58,6 +58,15 @@ module.exports = {
           'style-loader', 
           'css-loader',
           'postcss-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              additionalData: `
+                @import '~@scss/variables.scss';
+                @import '~@scss/utils.scss';
+              `
+            }
+          },
           // {
           //   loader: '@epegzz/sass-vars-loader',
           //   options: {
@@ -65,15 +74,6 @@ module.exports = {
           //     vars: { ...themeVariables },
           //   },
           // },
-          {
-            loader: 'sass-loader',
-            options: {
-              additionalData: `
-                @import '~@scss/variables.scss';
-                @import '~@scss/utils/functions.scss';
-              `
-            }
-          }
         ] 
       },
 
