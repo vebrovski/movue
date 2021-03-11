@@ -48,19 +48,6 @@ export default {
   },
 
   props: {
-    /**
-     * @todo
-     * When getting item from request and passing it's property (ex. title) to required prop as binded value in template (:title="item.title")
-     * it's value is first undefined (waiting for response). That's why I needed to add default value to required prop.
-     * I think this should be handled in some other way.
-     *
-     * Example (getItem is an export of requests/getItem.js):
-     * getItem("movie", 464052).then((response) => {
-     *   this.item = response.data;
-     * });
-     *
-     * <div :title="item.title"></div> item.title is undefined here.
-     */
     title: {
       type: String,
       required: true,
