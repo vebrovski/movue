@@ -1,34 +1,24 @@
 <template>
   <div 
     class="items"
-    :class="`${listType}`"
+    :class="`items-${listType}`"
   >
-    <ItemsList 
-      v-if="templateType === 'list'" 
-      :items="items" 
-      class="popular-list"
-      :class="`${listType}-list`"
-    />
-    <ItemsSlider 
-      v-if="templateType === 'slider'" 
-      :items="items" 
-      :class="`${listType}-slider`"
-    />
+    <slot :items="items">
+      <List :items="items"></List>
+    </slot>
   </div>
 </template>
 
 <script>
 import { getItems } from '@utils/requests/getItems'
 import Cache from '@utils/cache';
-import ItemsSlider from '@components/organisms/ItemsSlider.vue';
-import ItemsList from '@components/organisms/ItemsList.vue';
+import List from '@components/molecules/List.vue';
 
 export default {
   name: "Items",
 
   components: {
-    ItemsSlider,
-    ItemsList
+    List
   },
 
   props: {
@@ -50,15 +40,6 @@ export default {
     listType: {
       type: String,
       default: 'popular'
-    },
-
-    /**
-     * Config for display of items.
-     * @value list, slider, grid (to be added).
-     */
-    templateType: {
-      type: String,
-      default: 'list'
     }
   },
 
