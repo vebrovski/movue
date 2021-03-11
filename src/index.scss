@@ -10,11 +10,8 @@
 /* || VARIABLES */
 @import '~@scss/variables';
 
-/* || BREAKPOINTS */
-@import '~@scss/utils/breakpoints';
-
-/* || FUNCTIONS */
-@import '~@scss/utils/functions';
+/* || UTILS */
+@import '~@scss/utils';
 
 /* || FONTS */
 @import "~@scss/fonts";
