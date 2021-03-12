@@ -4,7 +4,7 @@
     :class="{ 'swiper-container': enableDefaultSlider }"
   >
     <List
-      class="slider__items"
+      class="slider__items flex-row flex-nowrap"
       :class="{ 'swiper-wrapper': enableDefaultSlider }"
     >
       <ListItem
@@ -24,11 +24,11 @@
     </List>
     <div
       :class="{ 'swiper-button-next': enableDefaultSlider }"
-      class="button-next"
+      class="slider__button_next"
     ></div>
     <div
       :class="{ 'swiper-button-prev': enableDefaultSlider }"
-      class="button-prev"
+      class="slider__button_prev"
     ></div>
   </div>
 </template>
@@ -45,22 +45,22 @@ import Card from "@components/molecules/Card.vue";
 
 export default {
   /**
-   * Usage
+   * Usage (with slots)
    * Mind there is already default content for slot added with Card component.
    * In parent template do something like (scoped props solution):
    *
-   * <Slider :items="items" v-slot="{ item }">
+   * <ItemsSlider :items="items" v-slot="{ item }">
    *   <Card :item="item"
    *         :image="item.profile_path"
    *         :score="item.vote_average"
    *         :title="item.name || item.original_name"
    *         :description="item.character"
    *   ></Card>
-   * </Slider>
+   * </ItemsSlider>
    *
    * Or if you want to add specific classes for items and item
    *
-   * <Slider :items="items" v-slot="{ item }">
+   * <ItemsSlider :items="items" v-slot="{ item }">
    *   <List>
    *     <ListItems class="scroller__item">
    *       <Card :item="item"
@@ -71,7 +71,7 @@ export default {
    *       ></Card>
    *     </ListItems>
    *   </List>
-   * </Slider>
+   * </ItemsSlider>
    */
   name: "ItemsSlider",
 
@@ -148,4 +148,11 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.slider__button {
+  &_next,
+  &_prev {
+    color: $red-color;
+    font-weight: $font-weight-bold;
+  }
+}
 </style>
