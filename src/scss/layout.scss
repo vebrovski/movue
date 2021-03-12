@@ -4,6 +4,7 @@
 
 @import 'layout/container';
 @import 'layout/row';
+@import 'layout/column';
 
 @mixin flex-wrap {
   flex-wrap: wrap;
