@@ -96,3 +96,22 @@ ul {
   margin: 0;
   list-style: none;
 }
+
+/* || MEDIA */
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+img,
+svg,
+video,
+canvas,
+audio,
+iframe,
+embed,
+object {
+  display: block;
+  vertical-align: middle;
+}
