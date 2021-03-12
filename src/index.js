@@ -9,6 +9,9 @@ Vue.config.productionTip = false
 
 Vue.component('MenuList', MenuList)
 
+import PortalVue from 'portal-vue'
+Vue.use(PortalVue)
+
 new Vue({
   router,
   store,
