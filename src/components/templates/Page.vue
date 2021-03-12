@@ -4,6 +4,7 @@
     <div id="main">
       <slot></slot>
     </div>
+    <portal-target name="destination"></portal-target>
   </div>
 </template>
 
