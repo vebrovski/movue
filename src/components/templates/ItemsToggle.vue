@@ -112,4 +112,13 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.items-toggle__header {
+  @include flex-column;
+
+  align-items: flex-start;
+
+  @include breakpoint(md) {
+    flex-direction: row;
+  }
+}
 </style>
