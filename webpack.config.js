@@ -64,6 +64,7 @@ module.exports = {
               additionalData: `
                 @import '~@scss/variables.scss';
                 @import '~@scss/utils.scss';
+                @import '~@scss/layout.scss';
               `
             }
           },
