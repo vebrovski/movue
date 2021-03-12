@@ -1,10 +1,10 @@
 <template>
   <div class="page">
-    <app-header></app-header>
+    <AppHeader></AppHeader>
     <div id="main">
       <slot></slot>
     </div>
-    <portal-target name="destination"></portal-target>
+    <PortalTarget name="modal"></PortalTarget>
   </div>
 </template>
 
