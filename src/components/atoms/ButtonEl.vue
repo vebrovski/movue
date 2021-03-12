@@ -44,6 +44,7 @@ export default {
   &:hover,
   &:active {
     border-color: $red-color;
+    cursor: pointer;
   }
 }
 </style>
