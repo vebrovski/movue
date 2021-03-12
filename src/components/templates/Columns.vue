@@ -1,16 +1,20 @@
 <template>
-  <div class="columns flex flex-row">
-    <div class="column"
-         v-for="(column, index) in count"
-            :key="index"
-            :class="[
-              `column-${column}`,
-              { customColumnClass : customColumnClass !== undefined && customColumnClass.length > 0 },
-              { 'sidebar sidebar-left' : column === 1 && sidebar && sidebarPosition.includes('left') },
-              { 'sidebar sidebar-right' : column === count && sidebar && sidebarPosition.includes('right') }
-            ]"
+  <div class="columns flex-row">
+    <div 
+      v-for="(column, index) in count"
+      :key="index"
+      class="column flex-column"
+      :class="[
+        `column-${column}`,
+        { customColumnClass : customColumnClass !== undefined && customColumnClass.length > 0 },
+        { 'sidebar sidebar-left' : column === 1 && sidebar && sidebarPosition.includes('left') },
+        { 'sidebar sidebar-right' : column === count && sidebar && sidebarPosition.includes('right') }
+      ]"
     >
-      <slot v-if="count > 1" :name="`column-${column}`"></slot>
+      <slot 
+        v-if="count > 1"
+        :name="`column-${column}`"
+      ></slot>
       <slot v-else></slot>
     </div>
   </div>
@@ -56,7 +60,8 @@
         },
       },
       customColumnClass: {
-        type: String
+        type: String,
+        default: ""
       }
     }
   }
